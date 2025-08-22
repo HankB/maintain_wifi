@@ -24,8 +24,9 @@ else
     echo "pinging $ip to check connectivity at $(date +%Y-%m-%d-%H%M%S)"
 fi
 
-module=$(/sbin/lsmod|/bin/grep -E "^mac80211" | /bin/awk '{print $4}')
-echo "WiFi module is \"$module\""
+interface=$(/usr/bin/ls /sys/class/ieee80211/*/device/net/|/usr/bin/head -1) # only first interface
+module=$(/usr/sbin/ethtool --driver "$interface" |/usr/bin/grep driver | /usr/bin/awk '{print $2}')
+echo "WiFi module for \"$interface\" is \"$module\""
 
 # loop test
 missed_ping_count=0
