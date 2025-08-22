@@ -3,7 +3,7 @@ Description=maintain network connectivity
 After=NetworkManager-wait-online.service
 
 [Service]
-ExecStart=/usr/local/sbin/maintain_wifi.sh glencoe
+ExecStart=/usr/local/sbin/maintain_wifi.sh name_ping_target
 
 [Install]
 WantedBy=multi-user.target
