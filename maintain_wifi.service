@@ -1,0 +1,11 @@
+[Unit]
+Description=maintain network connectivity
+After=NetworkManager-wait-online.service
+
+[Service]
+ExecStart=/usr/local/sbin/maintain_wifi.sh glencoe
+
+[Install]
+WantedBy=multi-user.target
+
+## Copy to /etc/systemd/system/ and add/edit the target to test against.
