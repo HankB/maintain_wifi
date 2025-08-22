@@ -25,6 +25,7 @@ else
 fi
 
 module=$(/sbin/lsmod|/bin/grep -E "^mac80211" | /bin/awk '{print $4}')
+echo "WiFi module is \"$module\""
 
 # loop test
 missed_ping_count=0
