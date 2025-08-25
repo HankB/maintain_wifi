@@ -10,6 +10,23 @@ Too many Raspberry Pi Zeroes (and Zero W) just drop off WiFi LAN w/out actually 
 
 * 2025-08-22 The script has had minimal testing and it seems to restore WiFi by rebooting. It needs further testing of the code to identify the device driver name (to `rmmod`/`modprobe`)
 
+## 2025-08-22 Usage
+
+```text
+git clone https://github.com/HankB/maintain_wifi.git
+cd maintain_wifi
+sed -i s/name_ping_target/target_of_your_choosing/ maintain_wifi.service 
+sudo cp maintain_wifi.sh /usr/local/sbin
+sudo cp maintain_wifi.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now maintain_wifi
+systemctl status maintain_wifi
+```
+
+## 2025-08-22 References
+
+* <https://unix.stackexchange.com/questions/286721/get-wi-fi-interface-device-names> ID WiFi device names
+
 ## 2025-08-22 Monitoring
 
 ```text
